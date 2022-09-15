@@ -1,38 +1,44 @@
-import React from "react";
-import TodosList from "./TodosList";
+import React from 'react';
+import TodosList from './TodosList';
+/* eslint-disable */
 
 class TodoContainer extends React.Component {
-    state = {
-        todos: [
-          {
-            id: 1,
-            title: "Setup development environment",
-            completed: true
-          },
-          {
-            id: 2,
-            title: "Develop website and add content",
-            completed: false
-          },
-          {
-            id: 3,
-            title: "Deploy to live server",
-            completed: false
-          }
-        ]
-       };
+  constructor() {
+    const state = {
+      todos: [
+        {
+          id: 1,
+          title: 'Setup development environment',
+          completed: true,
+        },
+        {
+          id: 2,
+          title: 'Develop website and add content',
+          completed: false,
+        },
+        {
+          id: 3,
+          title: 'Deploy to live server',
+          completed: false,
+        },
+      ],
+    };
 
-       handleChange(id) {
-        console.log('clicked!', id)
-       }
+    super(state);
+  }
 
-    render() {
-        return (
-            <div>
-                <TodosList todos={this.state.todos} handleChangeProps={this.handleChange} />
-            </div>
-        );
-    }
+  handleChange = (id) => {
+    console.log('clicked!', id);
+  }
+
+  render() {
+    const { items } = this.state;
+    return (
+      <div>
+        <TodosList todos={items} handleChangeProps={this.handleChange} />
+      </div>
+    );
+  }
 }
 
 export default TodoContainer;
