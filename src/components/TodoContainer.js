@@ -1,6 +1,6 @@
 import React from 'react';
+import '../style/App.css';
 import TodosList from './TodosList';
-/* eslint-disable */
 
 class TodoContainer extends React.Component {
   constructor() {
@@ -34,7 +34,7 @@ class TodoContainer extends React.Component {
   render() {
     const { items } = this.state;
     return (
-      <div>
+      <div className="todo">
         <TodosList todos={items} handleChangeProps={this.handleChange} />
       </div>
     );
